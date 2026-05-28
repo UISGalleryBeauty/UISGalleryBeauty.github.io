@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor
+*~
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Git 暫存／壞掉的 repo 目錄
+.git-broken/
+.git-stale-*/
+
+# 部署金鑰（絕不上傳）
+.deploy-token
+*.token
+
+# 圖片來源檔（PSD、AI、PNG 原檔 — 已轉 JPG 才上）
+*.psd
+*.ai
+images/_raw/
+images/_source/
+
+# 暫存比對圖
+_*_compare.png
+_*_compare.jpg

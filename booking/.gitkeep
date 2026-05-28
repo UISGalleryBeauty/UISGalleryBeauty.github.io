@@ -1,0 +1,4 @@
+# 預約相關頁放這層，例如：
+#   booking/index.html        預約流程說明
+#   booking/notes.html        預約前注意事項
+#   booking/form.html         預約表單（接 Formspree / Notion API）

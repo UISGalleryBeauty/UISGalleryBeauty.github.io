@@ -1,0 +1,7 @@
+# 此檔案讓 git 追蹤空資料夾
+# 圖片素材放這層下面，建議子資料夾命名：
+#   images/hero/         首頁主視覺
+#   images/services/     療程示意圖
+#   images/space/        空間實景
+#   images/team/         團隊形象
+#   images/_raw/         原檔（不上傳，已在 .gitignore）
