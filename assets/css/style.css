@@ -526,35 +526,44 @@ ul { list-style: none; }
   margin-bottom: 64px;
   color: #F5EDE0;
 }
-/* 改 3 (本輪)：VIP 照片放大 + 跟右邊文字上下對齊（同高、整齊） */
+/* VIP 區：圖維持大、只頂端對齊、背景金框偏移突出（秩序中跳脫） */
 .vip-mega-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: stretch;
+  gap: 72px;
+  align-items: start;          /* 改：只頂端對齊，不再 stretch */
   max-width: 1200px;
   margin: 0 auto;
+  padding-top: 24px;           /* 給 ::before 偏移框留突出空間 */
 }
 .vip-mega-image {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(199, 160, 99, 0.06);
-  border-radius: var(--radius);
-  padding: 32px;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-  overflow: hidden;
+  /* 取消：background / padding / box-shadow / overflow */
 }
+/* 偏移背景金線框（左上突出超過圖邊 24px，刻意打破對齊感） */
 .vip-mega-image::before {
   content: "";
   position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
+  top: -24px;
+  left: -24px;
+  right: 24px;
+  bottom: 24px;
   border: 1px solid var(--color-vip-gold);
   border-radius: var(--radius);
+  z-index: 0;
+  pointer-events: none;
+}
+/* 第二層偏移色塊（更深層次） */
+.vip-mega-image::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: -16px;
+  bottom: -16px;
+  background: rgba(199, 160, 99, 0.08);
+  border-radius: var(--radius);
+  z-index: 0;
   pointer-events: none;
 }
 .vip-mega-image img {
@@ -562,15 +571,15 @@ ul { list-style: none; }
   z-index: 1;
   width: 100%;
   height: auto;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 2px;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  display: block;
 }
 .vip-mega-rules {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 12px;
+  /* 取消 justify-content: space-between 避免拉開內容 */
 }
 .vip-mega-rules {
   font-size: 15px;
