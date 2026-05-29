@@ -526,19 +526,21 @@ ul { list-style: none; }
   margin-bottom: 64px;
   color: #F5EDE0;
 }
-/* VIP 區：圖維持大、只頂端對齊、背景金框偏移突出（秩序中跳脫） */
+/* VIP 區：圖大、頂底都對齊、背景金框偏移突出（秩序中跳脫） */
 .vip-mega-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 72px;
-  align-items: start;          /* 改：只頂端對齊，不再 stretch */
+  align-items: stretch;        /* 兩欄等高，讓文字側 CTA 能推到底 */
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 24px;           /* 給 ::before 偏移框留突出空間 */
 }
 .vip-mega-image {
   position: relative;
-  /* 取消：background / padding / box-shadow / overflow */
+  display: flex;
+  align-items: flex-start;     /* 圖在容器頂端 */
+  justify-content: center;
 }
 /* 偏移背景金線框（左上突出超過圖邊 24px，刻意打破對齊感） */
 .vip-mega-image::before {
@@ -579,7 +581,11 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   gap: 12px;
-  /* 取消 justify-content: space-between 避免拉開內容 */
+}
+/* 把最後的「加 LINE 了解白金會員」按鈕推到容器底端，跟圖底邊對齊 */
+.vip-mega-rules > .btn-line {
+  margin-top: auto;
+  align-self: flex-start;      /* 按鈕不拉滿寬，靠左 */
 }
 .vip-mega-rules {
   font-size: 15px;
