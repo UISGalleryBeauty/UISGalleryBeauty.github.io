@@ -1,5 +1,5 @@
 /* =========================================================
-   UIS Gallery Beauty — Stylesheet
+   UIS Gallery Beauty — Stylesheet (v2)
    調性：韓系療癒、純白＋鵝黃＋米白＋莫蘭迪綠＋金色，圓弧曲線
    ========================================================= */
 
@@ -8,13 +8,15 @@
   --color-text: #2E2A26;
   --color-muted: #7C736B;
   --color-faint: #B5ADA4;
-  --color-accent: #B89578;        /* 玫瑰金／古銅金 */
+  --color-accent: #B89578;        /* 玫瑰金／深奶茶 */
   --color-accent-dark: #8E6B4C;
   --color-line: #E8E1D6;
   --color-card: #FFFFFF;
-  --color-cream: #F6EFE2;          /* 鵝黃米白 */
-  --color-green: #C8D2C5;          /* 莫蘭迪綠 */
-  --color-line-line: #06C755;      /* LINE 綠 */
+  --color-cream: #F6EFE2;
+  --color-cream-deep: #ECDFC8;
+  --color-green: #C8D2C5;
+  --color-vip-bg: #2D2620;         /* VIP 深色突顯 */
+  --color-vip-gold: #C7A063;
   --font-heading: "Noto Serif TC", "Source Han Serif", "Songti TC", serif;
   --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
   --font-en: "Cormorant Garamond", "Times New Roman", serif;
@@ -58,23 +60,16 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 32px;
+  padding: 14px 32px;
   gap: 24px;
 }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand-mark {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-accent);
-  color: #fff;
-  font-family: var(--font-heading);
-  font-size: 20px;
-  font-weight: 500;
+.brand-mark-img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
   border-radius: var(--radius);
-  letter-spacing: 0;
+  background: var(--color-cream);
 }
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
 .brand-name {
@@ -95,20 +90,22 @@ ul { list-style: none; }
   letter-spacing: 0.12em;
   color: var(--color-muted);
   transition: color 0.2s;
-  position: relative;
 }
 .site-nav a:hover { color: var(--color-accent); }
+
+/* Header CTA：改用深奶茶底（移除 LINE 綠） */
 .header-cta {
-  background: var(--color-line-line);
+  background: var(--color-accent);
   color: #fff !important;
-  padding: 10px 20px;
+  padding: 10px 22px;
   font-size: 13px;
   letter-spacing: 0.15em;
   border-radius: 999px;
-  transition: opacity 0.2s;
+  transition: background 0.2s;
   white-space: nowrap;
+  font-weight: 500;
 }
-.header-cta:hover { opacity: 0.85; }
+.header-cta:hover { background: var(--color-accent-dark); }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -118,7 +115,7 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 120px 0 80px;
+  padding: 140px 0 100px;
 }
 .hero-video {
   position: absolute;
@@ -173,7 +170,7 @@ ul { list-style: none; }
   font-size: 16px;
   color: var(--color-text);
   letter-spacing: 0.15em;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   line-height: 2;
 }
 .hero-location {
@@ -187,12 +184,15 @@ ul { list-style: none; }
   display: inline-block;
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--color-line);
-  padding: 8px 24px;
+  padding: 10px 28px;
   border-radius: 999px;
   font-size: 13px;
   letter-spacing: 0.15em;
   color: var(--color-text);
-  margin-bottom: 40px;
+}
+/* 改 2：pill 與 CTA 之間至少 3 單位（72px）間距 */
+.hero-cta-wrap {
+  margin-top: 72px;
 }
 
 /* ---------- Section base ---------- */
@@ -238,6 +238,7 @@ ul { list-style: none; }
   cursor: pointer;
   transition: all 0.3s;
   white-space: nowrap;
+  font-family: inherit;
 }
 .btn-primary {
   background: var(--color-accent);
@@ -245,17 +246,17 @@ ul { list-style: none; }
   border-color: var(--color-accent);
 }
 .btn-primary:hover {
-  background: transparent;
-  color: var(--color-accent);
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
 }
 .btn-line {
-  background: var(--color-line-line);
+  background: #06C755;
   color: #fff;
-  border-color: var(--color-line-line);
+  border-color: #06C755;
 }
 .btn-line:hover {
   background: transparent;
-  color: var(--color-line-line);
+  color: #06C755;
 }
 .btn-outline {
   background: transparent;
@@ -265,6 +266,11 @@ ul { list-style: none; }
 .btn-outline:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
+}
+.btn-lg {
+  padding: 20px 48px;
+  font-size: 15px;
+  letter-spacing: 0.25em;
 }
 
 /* ---------- Quality section ---------- */
@@ -298,7 +304,7 @@ ul { list-style: none; }
   letter-spacing: 0.05em;
 }
 
-/* ---------- Product grid ---------- */
+/* ---------- Product grid（改 3：可點擊）---------- */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -311,11 +317,15 @@ ul { list-style: none; }
   border-radius: var(--radius);
   padding: 24px;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  cursor: pointer;
+  display: block;
+  color: inherit;
 }
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+  border-color: var(--color-accent);
 }
 .product-image-placeholder {
   aspect-ratio: 1 / 1;
@@ -341,6 +351,22 @@ ul { list-style: none; }
   color: var(--color-muted);
   font-size: 13px;
   letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.product-more {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+  border-top: 1px solid var(--color-line);
+  padding-top: 12px;
+  margin-top: 4px;
+  width: 100%;
+  transition: color 0.2s, border-color 0.2s;
+}
+.product-card:hover .product-more {
+  color: var(--color-accent-dark);
+  border-top-color: var(--color-accent);
 }
 .product-note {
   text-align: center;
@@ -351,121 +377,8 @@ ul { list-style: none; }
   margin: 0 auto;
 }
 
-/* ---------- Courses section ---------- */
-.section-courses { background: var(--color-bg); }
-.price-pair {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  max-width: 720px;
-  margin: 0 auto 64px;
-}
-.price-card {
-  background: #fff;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 40px 32px;
-  text-align: center;
-}
-.price-card-vip {
-  background: linear-gradient(135deg, var(--color-cream) 0%, #fff 100%);
-  border-color: var(--color-accent);
-  position: relative;
-}
-.price-card-vip::before {
-  content: "VIP";
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: var(--color-accent);
-  color: #fff;
-  padding: 4px 10px;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  border-radius: 2px;
-}
-.price-label {
-  font-size: 13px;
-  letter-spacing: 0.25em;
-  color: var(--color-muted);
-  margin-bottom: 16px;
-}
-.price-amount {
-  font-family: var(--font-en);
-  font-size: 42px;
-  color: var(--color-accent-dark);
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-.price-card-vip .price-amount { color: var(--color-accent); }
-.price-note {
-  font-size: 13px;
-  color: var(--color-muted);
-  letter-spacing: 0.1em;
-}
-
-/* VIP block */
-.vip-block {
-  background: #fff;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 48px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.vip-title {
-  text-align: center;
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 36px;
-  letter-spacing: 0.06em;
-  color: var(--color-accent-dark);
-}
-.vip-content {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 48px;
-  align-items: center;
-}
-.vip-image img { border-radius: var(--radius); }
-.vip-rules { font-size: 15px; }
-.vip-headline {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  color: var(--color-accent-dark);
-  margin-bottom: 16px;
-  letter-spacing: 0.04em;
-}
-.vip-rules p { margin-bottom: 16px; }
-.vip-list { margin: 20px 0; }
-.vip-list li {
-  padding: 12px 0;
-  padding-left: 24px;
-  position: relative;
-  border-bottom: 1px dashed var(--color-line);
-  font-size: 14px;
-  letter-spacing: 0.04em;
-}
-.vip-list li::before {
-  content: "◆";
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
-  font-size: 10px;
-  top: 16px;
-}
-.vip-list li:last-child { border-bottom: none; }
-.vip-list strong { color: var(--color-accent-dark); }
-.vip-cta-note {
-  margin-top: 16px;
-  font-size: 13px;
-  color: var(--color-muted);
-  font-style: italic;
-}
-.vip-cta-note strong { color: var(--color-accent-dark); }
-
-/* ---------- Skincare grid ---------- */
+/* ---------- Skincare section ---------- */
+.section-skincare { background: var(--color-bg); }
 .skincare-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -473,19 +386,24 @@ ul { list-style: none; }
   margin-bottom: 48px;
 }
 .skincare-cat {
-  background: var(--color-cream);
+  background: #fff;
+  border: 1px solid var(--color-line);
   padding: 40px 28px;
   border-radius: var(--radius);
   text-align: center;
-  transition: transform 0.3s;
+  transition: transform 0.3s, border-color 0.3s;
 }
-.skincare-cat:hover { transform: translateY(-4px); }
+.skincare-cat:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
 .skincare-num {
   font-family: var(--font-en);
-  font-size: 32px;
+  font-size: 36px;
   color: var(--color-accent);
   margin-bottom: 16px;
   letter-spacing: 0.05em;
+  font-weight: 400;
 }
 .skincare-cat h3 {
   font-family: var(--font-heading);
@@ -508,7 +426,213 @@ ul { list-style: none; }
   margin: 0 auto;
 }
 
-/* ---------- Space gallery ---------- */
+/* ---------- Courses section ---------- */
+.section-courses {
+  background: var(--color-cream);
+  padding-bottom: 0;
+}
+.price-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto 100px;
+}
+.price-card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+}
+.price-card-vip {
+  background: linear-gradient(135deg, #fff 0%, var(--color-cream) 100%);
+  border-color: var(--color-accent);
+}
+.price-vip-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  border-radius: 2px;
+  font-weight: 500;
+}
+.price-label {
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  color: var(--color-muted);
+  margin-bottom: 16px;
+}
+.price-amount {
+  font-family: var(--font-en);
+  font-size: 44px;
+  color: var(--color-accent-dark);
+  margin-bottom: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.price-card-vip .price-amount { color: var(--color-accent); }
+.price-note {
+  font-size: 13px;
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+}
+
+/* ---------- VIP Mega（改 4：大幅強化，全寬深色突顯）---------- */
+.vip-mega {
+  background: var(--color-vip-bg);
+  color: #F5EDE0;
+  padding: 100px 0;
+  position: relative;
+  margin-top: 0;
+}
+.vip-mega::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-vip-gold), transparent);
+}
+.vip-mega-eyebrow {
+  text-align: center;
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.5em;
+  color: var(--color-vip-gold);
+  margin-bottom: 16px;
+}
+.vip-mega-title {
+  text-align: center;
+  font-family: var(--font-en);
+  font-size: clamp(48px, 7vw, 72px);
+  font-weight: 500;
+  color: var(--color-vip-gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.vip-mega-subtitle {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  letter-spacing: 0.2em;
+  margin-bottom: 64px;
+  color: #F5EDE0;
+}
+.vip-mega-content {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.vip-mega-image {
+  position: relative;
+}
+.vip-mega-image::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  right: 16px;
+  bottom: 16px;
+  border: 1px solid var(--color-vip-gold);
+  border-radius: var(--radius);
+  z-index: 0;
+}
+.vip-mega-image img {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+.vip-mega-rules {
+  font-size: 15px;
+}
+.vip-mega-headline {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  line-height: 1.6;
+  color: #F5EDE0;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+.vip-mega-headline strong {
+  color: var(--color-vip-gold);
+  font-weight: 500;
+}
+.vip-mega-summary {
+  font-size: 15px;
+  line-height: 2;
+  color: #D8CFC0;
+  padding: 20px;
+  background: rgba(199, 160, 99, 0.08);
+  border-left: 3px solid var(--color-vip-gold);
+  margin-bottom: 36px;
+  letter-spacing: 0.05em;
+}
+.vip-mega-summary strong { color: #F5EDE0; }
+.vip-price {
+  font-family: var(--font-en);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--color-vip-gold) !important;
+}
+.vip-mega-list { margin-bottom: 28px; }
+.vip-mega-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(199, 160, 99, 0.2);
+}
+.vip-mega-list li:last-child { border-bottom: none; }
+.vip-num {
+  font-family: var(--font-en);
+  font-size: 24px;
+  color: var(--color-vip-gold);
+  flex-shrink: 0;
+  width: 36px;
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+.vip-mega-list strong {
+  display: block;
+  color: #F5EDE0;
+  font-size: 16px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.vip-mega-list span {
+  display: block;
+  color: #BFB7A8;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+}
+.vip-mega-list em {
+  color: var(--color-vip-gold);
+  font-style: normal;
+  font-weight: 500;
+}
+.vip-mega-cta-note {
+  font-size: 13px;
+  color: #BFB7A8;
+  margin-bottom: 24px;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+.vip-mega-cta-note strong { color: var(--color-vip-gold); font-style: normal; }
+
+/* ---------- Space gallery（改 5：12 張，更豐富排版）---------- */
 .section-space { background: #fff; }
 .space-gallery {
   display: grid;
@@ -532,20 +656,25 @@ ul { list-style: none; }
   grid-column: span 2;
   grid-row: span 2;
 }
+.space-item-tall {
+  grid-row: span 2;
+}
 
-/* ---------- Stores ---------- */
+/* ---------- Stores（改 6：只剩新北 + LOGO 招牌展示）---------- */
 .section-stores { background: var(--color-bg); }
-.store-grid {
+.store-single-wrap {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 32px;
-  margin-bottom: 80px;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: start;
+  max-width: 1080px;
+  margin: 0 auto 80px;
 }
 .store-card {
   background: #fff;
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
-  padding: 40px;
+  padding: 48px;
   position: relative;
 }
 .store-card-primary {
@@ -562,12 +691,9 @@ ul { list-style: none; }
   border-radius: 2px;
   margin-bottom: 20px;
 }
-.store-card-secondary .store-badge {
-  background: var(--color-muted);
-}
 .store-card h3 {
   font-family: var(--font-heading);
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 500;
   margin-bottom: 12px;
   letter-spacing: 0.04em;
@@ -583,14 +709,14 @@ ul { list-style: none; }
   color: var(--color-muted);
   font-size: 13px;
   letter-spacing: 0.05em;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--color-line);
 }
-.store-info { margin-bottom: 28px; }
+.store-info { margin-bottom: 32px; }
 .store-info-row {
   display: flex;
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--color-line);
   font-size: 14px;
 }
@@ -613,6 +739,23 @@ ul { list-style: none; }
   flex-wrap: wrap;
 }
 .store-actions .btn { flex: 1; min-width: 130px; }
+
+.store-sign-display {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+}
+.store-sign-display img {
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+}
+.store-sign-caption {
+  font-size: 13px;
+  color: var(--color-muted);
+  letter-spacing: 0.15em;
+}
 
 .partners-block {
   background: #fff;
@@ -664,9 +807,7 @@ ul { list-style: none; }
   font-size: 15px;
   margin-bottom: 24px;
 }
-.footer-links {
-  margin-bottom: 24px;
-}
+.footer-links { margin-bottom: 24px; }
 .footer-links a {
   color: var(--color-muted);
   font-size: 14px;
@@ -684,15 +825,114 @@ ul { list-style: none; }
   letter-spacing: 0.1em;
 }
 
+/* ---------- Products page 共用樣式 ---------- */
+.products-hero {
+  padding: 160px 0 80px;
+  background: var(--color-cream);
+  text-align: center;
+}
+.products-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 5vw, 52px);
+  letter-spacing: 0.08em;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.products-hero p {
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.products-back {
+  text-align: center;
+  padding: 24px 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-line);
+}
+.products-back a {
+  color: var(--color-muted);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+}
+.products-back a:hover { color: var(--color-accent); }
+.product-detail {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+.product-detail:nth-child(even) { background: #fff; }
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.product-detail-image {
+  aspect-ratio: 1;
+  background: var(--color-cream);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-faint);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+}
+.product-detail h2 {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  text-align: left;
+}
+.product-detail-sub {
+  color: var(--color-accent-dark);
+  letter-spacing: 0.1em;
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+.product-detail-body p { margin-bottom: 16px; color: var(--color-text); }
+.product-detail-body h3 {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-accent-dark);
+  margin: 20px 0 8px;
+  letter-spacing: 0.1em;
+}
+.product-detail-body ul {
+  margin: 8px 0 16px;
+  padding-left: 0;
+}
+.product-detail-body ul li {
+  padding: 6px 0 6px 20px;
+  position: relative;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+.product-detail-body ul li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-size: 10px;
+  top: 10px;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 968px) {
   :root { --space-section: 80px; }
   .site-nav { display: none; }
-  .header-inner { padding: 14px 20px; gap: 12px; }
+  .header-inner { padding: 12px 20px; gap: 12px; }
   .brand-sub { display: none; }
-  .vip-content { grid-template-columns: 1fr; gap: 32px; }
-  .vip-image { max-width: 280px; margin: 0 auto; }
-  .vip-block { padding: 32px 24px; }
+  .brand-mark-img { width: 38px; height: 38px; }
+  .header-cta { padding: 8px 16px; font-size: 12px; }
+  .vip-mega-content { grid-template-columns: 1fr; gap: 40px; }
+  .vip-mega-image { max-width: 320px; margin: 0 auto; }
+  .vip-mega { padding: 80px 0; }
   .space-gallery {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 180px;
@@ -701,11 +941,31 @@ ul { list-style: none; }
     grid-column: span 2;
     grid-row: span 1;
   }
+  .space-item-tall {
+    grid-row: span 1;
+  }
+  .store-single-wrap {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .store-sign-display {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .product-detail-image { max-width: 360px; margin: 0 auto; }
+  .product-detail h2 { text-align: center; }
+  .product-detail-sub { text-align: center; }
   .container { padding: 0 20px; }
 }
 @media (max-width: 600px) {
   .hero-title { font-size: 44px; letter-spacing: 0.05em; }
   .hero-sub { font-size: 14px; }
-  .store-card { padding: 28px 24px; }
-  .vip-block { padding: 28px 20px; }
+  .hero-cta-wrap { margin-top: 56px; }
+  .store-card { padding: 32px 24px; }
+  .vip-mega-headline { font-size: 20px; }
+  .vip-mega-title { font-size: 44px; }
 }

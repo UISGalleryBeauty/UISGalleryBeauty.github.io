@@ -6,11 +6,11 @@
   <title>UIS Gallery Beauty｜高端皮膚管理</title>
   <meta name="description" content="UIS 有意思美學｜高端皮膚管理。源於自然・蘊自初心。V 臉抗衰／痘痘／酒糟敏感問題肌專門店。based in Taichung / New Taipei City，採全預約制。">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="UIS Gallery Beauty｜高端皮膚管理">
   <meta property="og:description" content="源於自然・蘊自初心。V 臉抗衰／痘痘／酒糟敏感問題肌專門店。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://uisgallerybeauty.github.io">
+  <meta property="og:image" content="https://uisgallerybeauty.github.io/images/brand/logo-sign.jpg">
 
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -20,7 +20,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand">
-        <span class="brand-mark">U</span>
+        <img class="brand-mark-img" src="images/brand/logo-mark.jpg" alt="UIS Gallery Beauty">
         <span class="brand-text">
           <span class="brand-name">UIS Gallery Beauty</span>
           <span class="brand-sub">有意思美學・高端皮膚管理</span>
@@ -28,8 +28,8 @@
       </a>
       <nav class="site-nav">
         <a href="#products">明星商品</a>
-        <a href="#courses">高端課程</a>
         <a href="#skincare">護膚產品</a>
+        <a href="#courses">高端課程</a>
         <a href="#space">店內環境</a>
         <a href="#stores">門店資訊</a>
       </nav>
@@ -41,7 +41,7 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero" id="top">
-    <video class="hero-video" autoplay muted loop playsinline poster="images/space/space-01.jpg">
+    <video class="hero-video" autoplay muted loop playsinline poster="images/space/space-02.jpg">
       <source src="images/video/hero-loop.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -54,7 +54,9 @@
         <span class="hero-location">based in Taichung / New Taipei City</span>
       </p>
       <p class="hero-pill">全台 30 家合作店家 ・ 採全預約制</p>
-      <a href="#stores" class="btn btn-primary">立即預約</a>
+      <div class="hero-cta-wrap">
+        <a href="#stores" class="btn btn-primary">立即預約</a>
+      </div>
     </div>
   </section>
 
@@ -77,44 +79,50 @@
     </div>
   </section>
 
-  <!-- ===== 明星商品 ===== -->
+  <!-- ===== 明星商品（可點擊進詳情頁）===== -->
   <section class="section section-alt" id="products">
     <div class="container">
       <p class="section-eyebrow">— BESTSELLERS —</p>
       <h2>UIS 明星商品</h2>
-      <p class="section-intro">六款熱賣品項，皮膚管理老師親自把關</p>
+      <p class="section-intro">六款熱賣品項，皮膚管理老師親自把關（點擊查看完整介紹）</p>
 
       <div class="product-grid">
-        <article class="product-card">
+        <a href="products.html#product-38" class="product-card">
           <div class="product-image-placeholder">產品照<br>待補</div>
           <h3>38號 修護柔敏膠原凝露</h3>
           <p class="product-desc">敏感修護・膠原補水</p>
-        </article>
-        <article class="product-card">
+          <span class="product-more">查看詳情 →</span>
+        </a>
+        <a href="products.html#product-26" class="product-card">
           <div class="product-image-placeholder">產品照<br>待補</div>
           <h3>26號 柔敏 C 白精華噴</h3>
           <p class="product-desc">120ml ・ 柔敏煥白</p>
-        </article>
-        <article class="product-card">
+          <span class="product-more">查看詳情 →</span>
+        </a>
+        <a href="products.html#product-7" class="product-card">
           <div class="product-image-placeholder">產品照<br>待補</div>
           <h3>7號 活膚煥采亮顏乳</h3>
           <p class="product-desc">30ml ・ 提亮活膚</p>
-        </article>
-        <article class="product-card">
+          <span class="product-more">查看詳情 →</span>
+        </a>
+        <a href="products.html#product-6" class="product-card">
           <div class="product-image-placeholder">產品照<br>待補</div>
           <h3>6號 晶緻人蔘 C 白修護霜</h3>
           <p class="product-desc">30ml ・ 人蔘修護</p>
-        </article>
-        <article class="product-card">
+          <span class="product-more">查看詳情 →</span>
+        </a>
+        <a href="products.html#product-23" class="product-card">
           <div class="product-image-placeholder">產品照<br>待補</div>
           <h3>23號 亮采 99 金潔顏蜜</h3>
           <p class="product-desc">深層淨化・新包裝上市</p>
-        </article>
-        <article class="product-card">
+          <span class="product-more">查看詳情 →</span>
+        </a>
+        <a href="products.html#product-22" class="product-card">
           <div class="product-image-placeholder">產品照<br>待補</div>
           <h3>22號 亮采 99 金卸妝乳</h3>
           <p class="product-desc">溫和卸除・新包裝上市</p>
-        </article>
+          <span class="product-more">查看詳情 →</span>
+        </a>
       </div>
 
       <p class="product-note">
@@ -128,54 +136,8 @@
     </div>
   </section>
 
-  <!-- ===== 高端皮膚管理課程 ===== -->
-  <section class="section section-courses" id="courses">
-    <div class="container">
-      <p class="section-eyebrow">— PREMIUM COURSES —</p>
-      <h2>高端皮膚管理課程</h2>
-      <p class="section-intro">量膚訂製 ・ 由專業皮膚管理老師為您規劃</p>
-
-      <div class="price-pair">
-        <div class="price-card price-card-standard">
-          <div class="price-label">單堂價</div>
-          <div class="price-amount">NT$ 4,500</div>
-          <div class="price-note">採全預約制</div>
-        </div>
-        <div class="price-card price-card-vip">
-          <div class="price-label">白金會員價</div>
-          <div class="price-amount">NT$ 999</div>
-          <div class="price-note">全台合作店家通用</div>
-        </div>
-      </div>
-
-      <div class="vip-block">
-        <h3 class="vip-title">How to be VIP｜如何成為白金會員</h3>
-        <div class="vip-content">
-          <div class="vip-image">
-            <img src="images/brand/vip-program.jpg" alt="UIS Gallery Beauty 白金會員辦法">
-          </div>
-          <div class="vip-rules">
-            <p class="vip-headline">凡購買整組保養品，即可升級為白金會員</p>
-            <p>帶整組保養品回來做課程即享白金價 <strong>$999</strong>（全台合作店家許可通用）</p>
-            <ul class="vip-list">
-              <li><strong>入會費 $1,000</strong>：所有保養品消費皆可累計點數</li>
-              <li><strong>累計滿 30,000 點</strong>：本論品項即享有 <strong>20% 優惠</strong></li>
-              <li><strong>單次滿 30,000 點</strong>：即加贈旅行組（價值 $6,000）</li>
-            </ul>
-            <p class="vip-cta-note">更多細節歡迎諮詢官方客服 <strong>@uiss</strong></p>
-          </div>
-        </div>
-        <div class="section-cta">
-          <a href="https://lin.ee/UDv8DUk" target="_blank" rel="noopener" class="btn btn-line">
-            加 LINE 了解白金會員
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 護膚產品 ===== -->
-  <section class="section section-alt" id="skincare">
+  <!-- ===== 護膚產品（緊接明星商品）===== -->
+  <section class="section section-skincare" id="skincare">
     <div class="container">
       <p class="section-eyebrow">— SKINCARE LINE —</p>
       <h2>全系列護膚產品</h2>
@@ -215,7 +177,86 @@
     </div>
   </section>
 
-  <!-- ===== 店內環境 ===== -->
+  <!-- ===== 高端皮膚管理課程（VIP 大幅強化）===== -->
+  <section class="section section-courses" id="courses">
+    <div class="container">
+      <p class="section-eyebrow">— PREMIUM COURSES —</p>
+      <h2>高端皮膚管理課程</h2>
+      <p class="section-intro">量膚訂製 ・ 由專業皮膚管理老師為您規劃</p>
+
+      <div class="price-pair">
+        <div class="price-card price-card-standard">
+          <div class="price-label">單堂價</div>
+          <div class="price-amount">NT$ 4,500</div>
+          <div class="price-note">採全預約制</div>
+        </div>
+        <div class="price-card price-card-vip">
+          <div class="price-vip-badge">VIP</div>
+          <div class="price-label">白金會員價</div>
+          <div class="price-amount">NT$ 999</div>
+          <div class="price-note">全台合作店家通用</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIP 大區塊（突破 container，全寬視覺強化）-->
+    <div class="vip-mega">
+      <div class="container">
+        <p class="vip-mega-eyebrow">— EXCLUSIVE MEMBERSHIP —</p>
+        <h3 class="vip-mega-title">How to be VIP</h3>
+        <p class="vip-mega-subtitle">如何成為 UIS 白金會員</p>
+
+        <div class="vip-mega-content">
+          <div class="vip-mega-image">
+            <img src="images/brand/vip-program.jpg" alt="UIS Gallery Beauty 白金會員辦法">
+          </div>
+          <div class="vip-mega-rules">
+            <p class="vip-mega-headline">
+              凡購買整組保養品<br>
+              <strong>即可升級為白金會員</strong>
+            </p>
+            <p class="vip-mega-summary">
+              帶整組保養品回來做課程，立即享白金價 <strong class="vip-price">$999</strong><br>
+              全台合作店家許可通用
+            </p>
+
+            <ul class="vip-mega-list">
+              <li>
+                <span class="vip-num">01</span>
+                <div>
+                  <strong>入會費 $1,000</strong>
+                  <span>所有保養品消費皆可累計點數</span>
+                </div>
+              </li>
+              <li>
+                <span class="vip-num">02</span>
+                <div>
+                  <strong>累計滿 30,000 點</strong>
+                  <span>本論品項即享有 <em>20% 優惠</em></span>
+                </div>
+              </li>
+              <li>
+                <span class="vip-num">03</span>
+                <div>
+                  <strong>單次滿 30,000 點</strong>
+                  <span>即加贈旅行組（價值 <em>$6,000</em>）</span>
+                </div>
+              </li>
+            </ul>
+
+            <p class="vip-mega-cta-note">
+              更多細節歡迎諮詢官方客服 <strong>@uiss</strong>
+            </p>
+            <a href="https://lin.ee/UDv8DUk" target="_blank" rel="noopener" class="btn btn-line btn-lg">
+              加 LINE 了解白金會員
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 店內環境（12 張照片）===== -->
   <section class="section section-space" id="space">
     <div class="container">
       <p class="section-eyebrow">— OUR SPACE —</p>
@@ -227,13 +268,25 @@
           <img src="images/space/space-02.jpg" alt="UIS Gallery Beauty 接待空間" loading="lazy">
         </div>
         <div class="space-item">
-          <img src="images/space/space-04.jpg" alt="店內空間" loading="lazy">
+          <img src="images/space/space-03.jpg" alt="店內空間" loading="lazy">
         </div>
         <div class="space-item">
-          <img src="images/space/space-06.jpg" alt="療程室" loading="lazy">
+          <img src="images/space/space-04.jpg" alt="療程室" loading="lazy">
         </div>
         <div class="space-item">
+          <img src="images/space/space-05.jpg" alt="療程室角落" loading="lazy">
+        </div>
+        <div class="space-item">
+          <img src="images/space/space-06.jpg" alt="療程環境" loading="lazy">
+        </div>
+        <div class="space-item">
+          <img src="images/space/space-07.jpg" alt="接待沙發" loading="lazy">
+        </div>
+        <div class="space-item space-item-tall">
           <img src="images/space/space-09.jpg" alt="療程床" loading="lazy">
+        </div>
+        <div class="space-item">
+          <img src="images/space/space-11.jpg" alt="療程細節" loading="lazy">
         </div>
         <div class="space-item">
           <img src="images/space/space-13.jpg" alt="療程環境" loading="lazy">
@@ -242,20 +295,23 @@
           <img src="images/space/space-15.jpg" alt="一客一換一消毒" loading="lazy">
         </div>
         <div class="space-item">
+          <img src="images/space/space-17.jpg" alt="療程準備區" loading="lazy">
+        </div>
+        <div class="space-item">
           <img src="images/space/space-19.jpg" alt="產品陳列區" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 門店資訊 ===== -->
+  <!-- ===== 門店資訊（只留新北）===== -->
   <section class="section section-stores" id="stores">
     <div class="container">
-      <p class="section-eyebrow">— OUR STORES —</p>
+      <p class="section-eyebrow">— OUR STORE —</p>
       <h2>門店資訊</h2>
-      <p class="section-intro">兩間直營門店 ・ 全台 30 家合作店家</p>
+      <p class="section-intro">採全預約制 ・ 全台 30 家合作店家</p>
 
-      <div class="store-grid">
+      <div class="store-single-wrap">
         <article class="store-card store-card-primary">
           <div class="store-badge">新北概念店</div>
           <h3>UIS 有意思美學｜新北概念店</h3>
@@ -265,6 +321,7 @@
           <p class="store-positioning">
             緊緻 V 臉抗衰 ／ 痘痘 ／ 酒糟敏感問題肌專門店
           </p>
+
           <div class="store-info">
             <div class="store-info-row">
               <span class="store-info-label">地址</span>
@@ -279,6 +336,7 @@
               <span class="store-info-val">採全預約制</span>
             </div>
           </div>
+
           <div class="store-actions">
             <a href="https://lin.ee/UDv8DUk" target="_blank" rel="noopener" class="btn btn-line">
               LINE 預約
@@ -289,34 +347,11 @@
           </div>
         </article>
 
-        <article class="store-card store-card-secondary">
-          <div class="store-badge">台中旗艦店</div>
-          <h3>UIS 有意思美學｜台中旗艦店</h3>
-          <p class="store-services">
-            高端皮膚管理 ・ 量膚訂製
-          </p>
-          <p class="store-positioning">
-            緊緻 V 臉抗衰 ／ 痘痘 ／ 酒糟敏感問題肌專門店
-          </p>
-          <div class="store-info">
-            <div class="store-info-row">
-              <span class="store-info-label">地址</span>
-              <span class="store-info-val">（詳細地址待補）</span>
-            </div>
-            <div class="store-info-row">
-              <span class="store-info-label">營業方式</span>
-              <span class="store-info-val">採全預約制</span>
-            </div>
-          </div>
-          <div class="store-actions">
-            <a href="https://lin.ee/YxH26ek" target="_blank" rel="noopener" class="btn btn-line">
-              LINE 預約
-            </a>
-            <a href="https://maps.app.goo.gl/kwvVr615AQecfoKn7" target="_blank" rel="noopener" class="btn btn-outline">
-              查看地圖
-            </a>
-          </div>
-        </article>
+        <!-- 招牌實體照展示 -->
+        <div class="store-sign-display">
+          <img src="images/brand/logo-sign.jpg" alt="UIS Beauty Gallery 店內招牌">
+          <p class="store-sign-caption">店內招牌 ・ 金色 U 字標誌</p>
+        </div>
       </div>
 
       <div class="partners-block">
@@ -340,7 +375,7 @@
       <p class="footer-tagline">源於自然 ・ 蘊自初心</p>
       <p class="footer-en">A space where you heal, glow, and grow.</p>
       <div class="footer-links">
-        <a href="https://lin.ee/UDv8DUk" target="_blank" rel="noopener">官方 LINE</a>
+        <a href="https://lin.ee/UDv8DUk" target="_blank" rel="noopener">官方 LINE @uiss</a>
         <span class="footer-sep">・</span>
         <a href="https://linkbio.co/uisgallery" target="_blank" rel="noopener">原 linkbio 頁</a>
       </div>
