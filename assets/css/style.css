@@ -814,6 +814,88 @@ ul { list-style: none; }
   margin: 0 auto;
 }
 
+/* ---------- Lightbox（點縮圖看完整未裁切照片） ---------- */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 16, 12, 0.94);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 40px;
+}
+.lightbox-overlay.active {
+  display: flex;
+  animation: lightboxFade 0.25s ease;
+}
+@keyframes lightboxFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: default;
+  border-radius: 4px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+}
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  font-family: inherit;
+  padding: 0;
+}
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255,255,255,0.18);
+  transform: scale(1.05);
+}
+.lightbox-close { top: 24px; right: 24px; }
+.lightbox-prev { left: 24px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 24px; top: 50%; transform: translateY(-50%); }
+.lightbox-prev:hover { transform: translateY(-50%) scale(1.05); }
+.lightbox-next:hover { transform: translateY(-50%) scale(1.05); }
+.lightbox-counter {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-en);
+  letter-spacing: 0.3em;
+  font-size: 13px;
+  background: rgba(0,0,0,0.4);
+  padding: 6px 18px;
+  border-radius: 999px;
+}
+@media (max-width: 768px) {
+  .lightbox-overlay { padding: 16px; }
+  .lightbox-close { top: 12px; right: 12px; width: 44px; height: 44px; font-size: 24px; }
+  .lightbox-prev { left: 8px; width: 44px; height: 44px; font-size: 24px; }
+  .lightbox-next { right: 8px; width: 44px; height: 44px; font-size: 24px; }
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   padding: 60px 0 40px;
