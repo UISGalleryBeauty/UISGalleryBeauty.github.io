@@ -65,11 +65,10 @@ ul { list-style: none; }
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-mark-img {
-  width: 44px;
+  width: auto;
   height: 44px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  background: var(--color-cream);
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.05));
 }
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
 .brand-name {
@@ -249,14 +248,15 @@ ul { list-style: none; }
   background: var(--color-accent-dark);
   border-color: var(--color-accent-dark);
 }
+/* 改 4 (本輪)：LINE 按鈕統一深奶茶，全網一致 */
 .btn-line {
-  background: #06C755;
+  background: var(--color-accent);
   color: #fff;
-  border-color: #06C755;
+  border-color: var(--color-accent);
 }
 .btn-line:hover {
-  background: transparent;
-  color: #06C755;
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
 }
 .btn-outline {
   background: transparent;
@@ -526,33 +526,51 @@ ul { list-style: none; }
   margin-bottom: 64px;
   color: #F5EDE0;
 }
+/* 改 3 (本輪)：VIP 照片放大 + 跟右邊文字上下對齊（同高、整齊） */
 .vip-mega-content {
   display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 64px;
-  align-items: center;
-  max-width: 1080px;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: stretch;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .vip-mega-image {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(199, 160, 99, 0.06);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  overflow: hidden;
 }
 .vip-mega-image::before {
   content: "";
   position: absolute;
-  top: -16px;
-  left: -16px;
-  right: 16px;
-  bottom: 16px;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
   border: 1px solid var(--color-vip-gold);
   border-radius: var(--radius);
-  z-index: 0;
+  pointer-events: none;
 }
 .vip-mega-image img {
   position: relative;
   z-index: 1;
-  border-radius: var(--radius);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 2px;
+}
+.vip-mega-rules {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
 }
 .vip-mega-rules {
   font-size: 15px;
@@ -787,6 +805,12 @@ ul { list-style: none; }
   text-align: center;
   background: #fff;
   border-top: 1px solid var(--color-line);
+}
+.footer-logo {
+  width: auto;
+  height: 56px;
+  margin: 0 auto 20px;
+  opacity: 0.85;
 }
 .footer-brand {
   font-family: var(--font-heading);

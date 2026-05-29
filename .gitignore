@@ -29,3 +29,5 @@ images/_source/
 # 暫存比對圖
 _*_compare.png
 _*_compare.jpg
+_logo_work/
+.git-stale-*
