@@ -10,7 +10,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/brand/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="images/brand/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/brand/apple-touch-icon.png">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -120,8 +119,18 @@
           </div>
         </article>
 
-        <div class="store-map store-map-leaflet">
-          <div id="uisMap" class="uis-leaflet-map" aria-label="UIS 新北概念店附近地標地圖"></div>
+        <div class="store-map store-map-tinted">
+          <iframe
+            src="https://maps.google.com/maps?q=%E6%96%B0%E5%8C%97%E5%B8%82%E6%96%B0%E8%8E%8A%E5%8D%80%E4%B8%AD%E4%BF%A1%E8%A1%97176%E8%99%9F8%E6%A8%93%E4%B9%9D&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="UIS Gallery Beauty 新北概念店位置">
+          </iframe>
         </div>
       </div>
 
@@ -154,8 +163,6 @@
     </div>
   </footer>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/map.js"></script>
 </body>
 </html>
