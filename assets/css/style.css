@@ -1056,10 +1056,10 @@ ul { list-style: none; }
 .footer-logo {
   grid-area: logo;
   width: auto;
-  height: 100px;
+  height: 137px;        /* = 右欄 brand 頂到 links 底的實測高度，上下緣對齊 */
   margin: 0;
   opacity: 1;
-  align-self: center;
+  align-self: stretch;  /* 撐滿 grid cell，與右欄等高 */
 }
 .footer-brand {
   grid-area: brand;
