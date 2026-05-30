@@ -23,6 +23,7 @@
   // ===== 漢堡選單（手機/平板 nav 切換） =====
   var headerInner = document.querySelector('.header-inner');
   var siteNav = document.querySelector('.site-nav');
+  var headerCta = document.querySelector('.header-cta');
   if (headerInner && siteNav) {
     // 動態插入漢堡按鈕（不需要改 HTML）
     var burgerBtn = document.createElement('button');
@@ -30,8 +31,16 @@
     burgerBtn.setAttribute('aria-label', '開啟選單');
     burgerBtn.setAttribute('aria-expanded', 'false');
     burgerBtn.innerHTML = '<span></span><span></span><span></span>';
-    // 插在 nav 之前
-    headerInner.insertBefore(burgerBtn, siteNav);
+    // 漢堡放在 header 最右側（append 到最後）
+    headerInner.appendChild(burgerBtn);
+
+    // 把「加入官方 LINE」按鈕 clone 一份加進 nav 最後（手機版用，與其他選項並列）
+    if (headerCta) {
+      var navLineLink = headerCta.cloneNode(true);
+      navLineLink.classList.remove('header-cta');
+      navLineLink.classList.add('nav-line-cta');
+      siteNav.appendChild(navLineLink);
+    }
 
     function closeNav() {
       siteNav.classList.remove('open');
