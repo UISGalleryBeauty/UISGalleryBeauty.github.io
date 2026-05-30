@@ -1034,59 +1034,90 @@ ul { list-style: none; }
   .lightbox-next { right: 8px; width: 44px; height: 44px; font-size: 24px; }
 }
 
-/* ---------- Footer（精品品牌標準佈局：LOGO 印記 + 置中堆疊 + 細線底欄）---------- */
+/* ---------- Footer（左右兩欄：左 LOGO、右文字組，壓矮白色區）---------- */
 .site-footer {
-  padding: 56px 0 32px;
+  padding: 36px 0 26px;
   background: #fff;
   border-top: 1px solid var(--color-line);
-  text-align: center;
 }
 .site-footer .container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "logo brand"
+    "logo tagline"
+    "logo en"
+    "logo links";
+  column-gap: 36px;
+  row-gap: 0;
+  align-items: center;
   max-width: 720px;
 }
 .footer-logo {
+  grid-area: logo;
   width: auto;
-  height: 72px;             /* 小品牌印記，不搶戲 */
-  margin: 0 auto 20px;
-  opacity: 0.92;
-  display: block;
+  height: 100px;
+  margin: 0;
+  opacity: 1;
+  align-self: center;
 }
 .footer-brand {
+  grid-area: brand;
   font-family: var(--font-heading);
   font-size: 16px;
   letter-spacing: 0.12em;
-  margin: 0 0 8px;
+  margin: 0 0 4px;
+  text-align: left;
+  align-self: end;
 }
 .footer-tagline {
-  letter-spacing: 0.32em;
+  grid-area: tagline;
+  letter-spacing: 0.3em;
   color: var(--color-accent-dark);
-  margin: 0 0 6px;
   font-size: 13px;
+  margin: 0 0 4px;
+  text-align: left;
+  align-self: center;
 }
 .footer-en {
+  grid-area: en;
   font-family: var(--font-en);
   font-style: italic;
   color: var(--color-accent);
-  font-size: 14px;
-  margin: 0 0 28px;
+  font-size: 13.5px;
+  margin: 0 0 14px;
+  text-align: left;
+  align-self: center;
 }
-/* 細線底欄：左 LINE、右 copyright */
+/* 細線底欄：右欄底下、左 LINE、右 © copyright */
 .footer-links {
+  grid-area: links;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid var(--color-line);
-  padding-top: 18px;
-  margin-top: 0;
-  font-size: 12.5px;
+  padding-top: 12px;
+  margin: 0;
+  font-size: 12px;
+  align-self: start;
 }
 .footer-links a {
   color: var(--color-muted);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-decoration: none;
 }
 .footer-links a:hover { color: var(--color-accent-dark); }
-.footer-sep { display: none; }     /* 細線佈局不需要分隔點 */
+.footer-sep { display: none; }
+/* 把 .footer-copy 顯示在 .footer-links 內側右邊（用 ::after 從 data 寫入太麻煩，所以用 grid 把 copy 推進 links 那塊） */
+.footer-copy {
+  display: none;       /* 桌面：被收進 links 的 flex 右側，這個 <p> 隱藏 */
+}
+.footer-links::after {
+  content: "© 2026 UIS Gallery Beauty";
+  color: var(--color-faint);
+  letter-spacing: 0.06em;
+  font-size: 11.5px;
+}
 .footer-links a {
   color: var(--color-muted);
   font-size: 14px;
@@ -1098,26 +1129,38 @@ ul { list-style: none; }
   color: var(--color-faint);
   margin: 0 12px;
 }
-.footer-copy {
-  font-size: 12.5px;
-  color: var(--color-faint);
-  letter-spacing: 0.08em;
-  margin: 0;
-}
-/* 把 copyright 從 flex container 外搬進來：透過 flex 的「最後一個 child」邏輯 */
-.site-footer .container > .footer-copy {
-  margin-top: 0;
-}
-
-/* RWD：手機 footer 細線下方改垂直堆疊 */
+/* RWD：手機 footer 改回單欄居中（左右兩欄在小螢幕擠不下） */
 @media (max-width: 600px) {
-  .footer-logo { height: 60px; margin-bottom: 16px; }
+  .site-footer { padding: 32px 0 24px; }
+  .site-footer .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "brand"
+      "tagline"
+      "en"
+      "links";
+    column-gap: 0;
+    text-align: center;
+    max-width: 320px;
+  }
+  .footer-logo {
+    height: 64px;
+    margin: 0 auto 14px;
+    align-self: center;
+  }
+  .footer-brand, .footer-tagline, .footer-en {
+    text-align: center;
+    align-self: center;
+  }
+  .footer-en { margin-bottom: 16px; }
   .footer-links {
     flex-direction: column;
-    gap: 10px;
-    padding-top: 16px;
+    gap: 8px;
+    padding-top: 14px;
+    justify-content: center;
   }
-  .footer-en { margin-bottom: 22px; }
+  .footer-links::after { text-align: center; }
 }
 
 /* ---------- Products page 共用樣式 ---------- */
