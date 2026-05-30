@@ -63,32 +63,39 @@ ul { list-style: none; }
   padding: 14px 32px;
   gap: 24px;
 }
-.brand { display: flex; align-items: center; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 14px; }
 .brand-mark-img {
   width: auto;
-  height: 44px;
+  height: 62px;                  /* 放大 LOGO（之前 44px 太小） */
   object-fit: contain;
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.05));
 }
-.brand-text { display: flex; flex-direction: column; line-height: 1.2; gap: 4px; }
+.brand-text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.2;
+  gap: 6px;
+  align-items: stretch;          /* 讓子元素吃滿父寬度 */
+}
 .brand-name {
   font-family: var(--font-heading);
   font-size: 17px;
   letter-spacing: 0.06em;
   font-weight: 500;
 }
-/* 品牌標準字（從 PDF 抽出的 UIS Beauty Gallery 圖檔） */
+/* 品牌標準字圖（UIS Beauty Gallery）— 寬度跟中文副標等寬達成上下對齊 */
 .brand-name-img {
   display: block;
-  width: auto;
-  height: 20px;
+  width: 100%;                   /* 跟父容器（brand-text）等寬 = 跟中文副標等寬 */
+  height: auto;
+  max-height: 26px;              /* 但別過高 */
   object-fit: contain;
+  object-position: left center;  /* 圖靠左對齊 */
 }
 .brand-sub {
   font-size: 11px;
   color: var(--color-muted);
-  letter-spacing: 0.15em;
-  margin-top: 2px;
+  letter-spacing: 0.18em;
+  white-space: nowrap;            /* 中文不換行，固定寬度，讓英文 LOGO 圖跟著吃滿 */
 }
 .site-nav { display: flex; gap: 28px; }
 .site-nav a {
@@ -1269,11 +1276,11 @@ body.nav-open {
   /* header 整體與品牌（手機版）：LOGO 跟兩行文字上下對齊 */
   .header-inner { padding: 14px 18px; gap: 10px; }
   .brand { gap: 12px; align-items: center; }
-  .brand-sub { display: block; font-size: 11px; }
+  .brand-sub { display: block; font-size: 11px; letter-spacing: 0.15em; }
   .brand-name { font-size: 17px; }
-  .brand-name-img { height: 18px; }
-  /* LOGO 圖縮小到跟兩行文字總高度差不多（約 46px），上下對齊 */
-  .brand-mark-img { width: auto; height: 46px; }
+  /* 手機 LOGO 圖跟兩行文字總高度齊平 */
+  .brand-mark-img { width: auto; height: 52px; }
+  .brand-name-img { max-height: 22px; }
   .vip-mega-content { grid-template-columns: 1fr; gap: 40px; }
   .vip-mega-image { max-width: 320px; margin: 0 auto; }
   .vip-mega { padding: 80px 0; }
