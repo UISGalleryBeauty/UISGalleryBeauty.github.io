@@ -1060,8 +1060,7 @@ ul { list-style: none; }
   margin: 0;
   opacity: 1;
   align-self: stretch;
-  /* 用 trim 版（裁掉 800x800 PNG 的透明 padding，墨水真正貼齊邊框） */
-  content: url('../../images/brand/logo-mark-trim.png');
+  /* LOGO src 已在 HTML 改用 logo-mark-trim.png（裁掉 800x800 PNG 的透明 padding） */
 }
 .footer-brand {
   grid-area: brand;
