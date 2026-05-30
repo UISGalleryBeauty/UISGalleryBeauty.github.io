@@ -703,9 +703,114 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  align-items: stretch;       /* 兩格等高 */
+  align-items: stretch;
   max-width: 1100px;
   margin: 0 auto 80px;
+}
+
+/* 三格佈局：預約流程 + 店家資訊 + 客製化地圖 */
+.store-triple-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  max-width: 1280px;
+  margin: 0 auto 80px;
+}
+
+/* 左：預約流程卡 */
+.store-booking-info {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 40px 28px;
+  display: flex;
+  flex-direction: column;
+}
+.booking-info-eyebrow {
+  font-family: var(--font-en);
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+.store-booking-info h3 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+.booking-info-lead {
+  font-size: 13px;
+  color: var(--color-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-line);
+}
+.booking-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+  flex: 1;
+}
+.booking-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 0;
+}
+.booking-steps .step-num {
+  font-family: var(--font-en);
+  font-size: 22px;
+  color: var(--color-accent);
+  font-style: italic;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  width: 32px;
+}
+.booking-steps strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.booking-steps span {
+  display: block;
+  font-size: 12px;
+  color: var(--color-muted);
+  letter-spacing: 0.05em;
+}
+.booking-steps em {
+  font-style: normal;
+  color: var(--color-accent-dark);
+  font-weight: 500;
+}
+.booking-info-cta {
+  margin-top: auto;
+}
+.btn-block {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+/* 右：客製化色調地圖（米色 monochrome filter） */
+.store-map-tinted iframe {
+  filter: grayscale(0.95) sepia(0.45) brightness(1.04) contrast(0.95) hue-rotate(-8deg);
+}
+
+/* RWD：手機/平板把三格疊成單欄 */
+@media (max-width: 968px) {
+  .store-triple-wrap {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 560px;
+  }
+  .store-booking-info { padding: 32px 24px; }
 }
 .store-card {
   background: #fff;
