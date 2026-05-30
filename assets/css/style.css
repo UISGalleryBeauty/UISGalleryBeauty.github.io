@@ -1036,7 +1036,7 @@ ul { list-style: none; }
 
 /* ---------- Footer（左右兩欄：左 LOGO、右文字群組）---------- */
 .site-footer {
-  padding: 56px 0 40px;
+  padding: 44px 0 32px;
   background: #fff;
   border-top: 1px solid var(--color-line);
 }
@@ -1044,12 +1044,12 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 56px;
-  max-width: 880px;
+  gap: 36px;
+  max-width: 640px;
 }
 .footer-logo {
   width: auto;
-  height: 168px;
+  height: 120px;
   margin: 0;
   opacity: 1;
   grid-row: 1 / span 5;      /* 強制跨 5 row，蓋住左欄整欄；右欄文字依序填 */
@@ -1058,27 +1058,27 @@ ul { list-style: none; }
 }
 .footer-brand {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 17px;
   letter-spacing: 0.1em;
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   text-align: left;
 }
 .footer-tagline {
   letter-spacing: 0.3em;
   color: var(--color-accent-dark);
-  margin: 0 0 8px;
-  font-size: 14px;
+  margin: 0 0 4px;
+  font-size: 13px;
   text-align: left;
 }
 .footer-en {
   font-family: var(--font-en);
   font-style: italic;
   color: var(--color-accent);
-  font-size: 15px;
-  margin: 0 0 20px;
+  font-size: 14px;
+  margin: 0 0 10px;
   text-align: left;
 }
-.footer-links { margin: 0 0 20px; text-align: left; }
+.footer-links { margin: 0 0 10px; text-align: left; }
 .footer-links a {
   color: var(--color-muted);
   font-size: 14px;
