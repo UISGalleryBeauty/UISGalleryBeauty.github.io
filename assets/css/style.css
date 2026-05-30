@@ -1043,9 +1043,9 @@ ul { list-style: none; }
 }
 .footer-logo {
   width: auto;
-  height: 84px;            /* 從 56px 放大 1.5 倍，刻意凸顯品牌 */
-  margin: 0 auto 28px;
-  opacity: 1;              /* 去淡化，視覺更鮮明 */
+  height: 168px;           /* 再放大 2 倍（從 84px），footer 焦點 */
+  margin: 0 auto 36px;
+  opacity: 1;
 }
 .footer-brand {
   font-family: var(--font-heading);
