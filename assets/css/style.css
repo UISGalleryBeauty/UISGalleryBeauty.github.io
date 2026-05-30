@@ -1202,6 +1202,10 @@ ul { list-style: none; }
 body.nav-open {
   overflow: hidden;
 }
+/* 桌面版隱藏漢堡選單內動態加進去的 LINE 按鈕 clone（避免在 nav 橫排顯示） */
+.nav-line-cta {
+  display: none;
+}
 
 @media (max-width: 968px) {
   :root { --space-section: 80px; }
@@ -1240,8 +1244,9 @@ body.nav-open {
   }
   .site-nav a:last-child { border-bottom: none; }
   .site-nav a:hover { color: var(--color-accent); }
-  /* 收進選單的 LINE CTA 用深奶茶背景突顯 */
+  /* 收進選單的 LINE CTA 用深奶茶背景突顯（手機才顯示） */
   .site-nav .nav-line-cta {
+    display: block;
     margin-top: 16px;
     background: var(--color-accent);
     color: #fff !important;
