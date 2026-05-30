@@ -70,12 +70,19 @@ ul { list-style: none; }
   object-fit: contain;
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.05));
 }
-.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; gap: 4px; }
 .brand-name {
   font-family: var(--font-heading);
   font-size: 17px;
   letter-spacing: 0.06em;
   font-weight: 500;
+}
+/* 品牌標準字（從 PDF 抽出的 UIS Beauty Gallery 圖檔） */
+.brand-name-img {
+  display: block;
+  width: auto;
+  height: 20px;
+  object-fit: contain;
 }
 .brand-sub {
   font-size: 11px;
@@ -1259,12 +1266,14 @@ body.nav-open {
     background: var(--color-accent-dark);
     color: #fff !important;
   }
-  /* header 整體與品牌放大 */
-  .header-inner { padding: 16px 20px; gap: 12px; }
-  .brand { gap: 16px; }
-  .brand-sub { display: block; font-size: 12px; }
-  .brand-name { font-size: 19px; }
-  .brand-mark-img { width: auto; height: 64px; }
+  /* header 整體與品牌（手機版）：LOGO 跟兩行文字上下對齊 */
+  .header-inner { padding: 14px 18px; gap: 10px; }
+  .brand { gap: 12px; align-items: center; }
+  .brand-sub { display: block; font-size: 11px; }
+  .brand-name { font-size: 17px; }
+  .brand-name-img { height: 18px; }
+  /* LOGO 圖縮小到跟兩行文字總高度差不多（約 46px），上下對齊 */
+  .brand-mark-img { width: auto; height: 46px; }
   .vip-mega-content { grid-template-columns: 1fr; gap: 40px; }
   .vip-mega-image { max-width: 320px; margin: 0 auto; }
   .vip-mega { padding: 80px 0; }
