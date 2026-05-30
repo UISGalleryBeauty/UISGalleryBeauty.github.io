@@ -1056,10 +1056,12 @@ ul { list-style: none; }
 .footer-logo {
   grid-area: logo;
   width: auto;
-  height: 137px;        /* = 右欄 brand 頂到 links 底的實測高度，上下緣對齊 */
+  height: 137px;        /* = 右欄 brand 頂到 links 底的實測高度 */
   margin: 0;
   opacity: 1;
-  align-self: stretch;  /* 撐滿 grid cell，與右欄等高 */
+  align-self: stretch;
+  /* 用 trim 版（裁掉 800x800 PNG 的透明 padding，墨水真正貼齊邊框） */
+  content: url('../../images/brand/logo-mark-trim.png');
 }
 .footer-brand {
   grid-area: brand;
