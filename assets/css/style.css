@@ -798,25 +798,22 @@ ul { list-style: none; }
   width: 100%;
 }
 
-/* 右：客製化色調地圖（強化米色 monochrome 風格） */
+/* 右：客製化色調地圖（淺米白 monochrome，跟背景融合） */
 .store-map-tinted {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius);
 }
+/* 純去色 + 大幅提亮：讓地圖變「淺灰+亮白」基底（不要 sepia 否則會土黃） */
 .store-map-tinted iframe {
-  filter: grayscale(1) sepia(0.85) brightness(1.08) contrast(0.92) hue-rotate(-5deg) saturate(1.1);
+  filter: grayscale(1) brightness(1.18) contrast(0.85);
 }
-/* 額外疊一層米色半透明覆蓋（pointer-events: none 讓滑鼠仍能穿透操作地圖） */
+/* overlay 用 cream 米白 multiply 疊出柔和米白色調 */
 .store-map-tinted::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(250, 247, 241, 0.18) 0%,
-    rgba(184, 149, 120, 0.22) 100%
-  );
+  background: rgba(246, 239, 226, 0.4);
   pointer-events: none;
   mix-blend-mode: multiply;
 }
