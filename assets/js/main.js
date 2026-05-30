@@ -20,6 +20,53 @@
     });
   });
 
+  // ===== 漢堡選單（手機/平板 nav 切換） =====
+  var headerInner = document.querySelector('.header-inner');
+  var siteNav = document.querySelector('.site-nav');
+  if (headerInner && siteNav) {
+    // 動態插入漢堡按鈕（不需要改 HTML）
+    var burgerBtn = document.createElement('button');
+    burgerBtn.className = 'nav-burger';
+    burgerBtn.setAttribute('aria-label', '開啟選單');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+    burgerBtn.innerHTML = '<span></span><span></span><span></span>';
+    // 插在 nav 之前
+    headerInner.insertBefore(burgerBtn, siteNav);
+
+    function closeNav() {
+      siteNav.classList.remove('open');
+      burgerBtn.classList.remove('active');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
+    }
+    function openNav() {
+      siteNav.classList.add('open');
+      burgerBtn.classList.add('active');
+      burgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('nav-open');
+    }
+    function toggleNav() {
+      siteNav.classList.contains('open') ? closeNav() : openNav();
+    }
+
+    burgerBtn.addEventListener('click', toggleNav);
+
+    // 點 nav 內任何連結後自動關閉
+    siteNav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeNav);
+    });
+
+    // 視窗縮放回桌面尺寸時自動關閉（避免狀態殘留）
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 968) closeNav();
+    });
+
+    // 按 Esc 關閉
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && siteNav.classList.contains('open')) closeNav();
+    });
+  }
+
   // ===== Lightbox =====
   var lightbox = document.getElementById('lightbox');
   if (lightbox) {
